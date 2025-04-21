@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept 2: Sidebar Topic Selection with Chips | UX Design Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="concept-header">
+        <div class="header-content">
+            <h1>Concept 2: Sidebar Topic Selection with Chips</h1>
+            <p class="concept-description">A mobile interface using a sidebar and chip selection for content translation topics</p>
+        </div>
+        <nav class="navigation">
+            <a href="../index.html" class="back-link">← All Concepts</a>
+        </nav>
+    </header>
+    
+    <main class="prototype-container">
+        <!-- Mobile content translation interface -->
+        <div class="mobile-frame">
+            <div class="mobile-header">
+                <div class="icon">W</div>
+                <div class="header-title">Translations</div>
+                <div class="header-icons">
+                    <span class="icon">🔔</span>
+                    <span class="icon">📱</span>
+                    <span class="icon">👤</span>
+                </div>
+            </div>
+            
+            <div class="new-translation-btn">
+                <span class="plus-icon">+</span> New Translation
+            </div>
+            
+            <div class="suggestions-section">
+                <h2>Suggestions</h2>
+                
+                <div class="filters">
+                    <button class="filter-btn active" id="for-you-btn">
+                        <span class="user-icon">👤</span> For you
+                    </button>
+                    <button class="filter-btn" id="popular-btn">
+                        <span class="heart-icon">❤️</span> Popular
+                    </button>
+                    
+                    <!-- Topic selection button with sidebar -->
+                    <button class="menu-button" id="topic-btn">
+                        <span class="ellipsis">...</span>
+                    </button>
+                </div>
+                
+                <!-- Display selected topic as a chip -->
+                <div class="selected-topics" id="selected-topics">
+                    <!-- Selected topics will be displayed here as chips -->
+                </div>
+                
+                <div class="language-selector">
+                    <div class="language">
+                        English <span class="down-arrow">▼</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="language">
+                        বাংলা <span class="down-arrow">▼</span>
+                    </div>
+                </div>
+                
+                <div class="articles-section">
+                    <h3>New pages</h3>
+                    
+                    <div class="article-list" id="article-list">
+                        <!-- Articles will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="expand-section">
+                    <button class="expand-btn">Expand with new sections</button>
+                </div>
+            </div>
+            
+            <div class="bottom-nav">
+                <div class="nav-item active">
+                    <span class="nav-icon">💡</span>
+                    <span class="nav-text">Suggestions</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">✏️</span>
+                    <span class="nav-text">In-progress</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-text">Published</span>
+                </div>
+            </div>
+            
+            <!-- Sidebar overlay for topic selection -->
+            <div class="sidebar-overlay" id="sidebar-overlay"></div>
+            
+            <!-- Sidebar for topic selection -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Adjust suggestions</h3>
+                    <span class="close-icon" id="close-sidebar">✕</span>
+                </div>
+                
+                <div class="sidebar-content">
+                    <h4>Automatic</h4>
+                    <div class="chip-group">
+                        <div class="chip active" data-filter="For you">
+                            <span class="user-icon">👤</span> For you
+                        </div>
+                        <div class="chip" data-filter="Popular">
+                            <span class="heart-icon">❤️</span> Popular
+                        </div>
+                    </div>
+                    
+                    <h4>Culture</h4>
+                    <div class="chip-group culture-chips">
+                        <div class="chip" data-topic="Architecture">Architecture</div>
+                        <div class="chip" data-topic="Art">Art</div>
+                        <div class="chip" data-topic="Comics and anime">Comics</div>
+                        <div class="chip" data-topic="Entertainment">Entertainment</div>
+                        <div class="chip" data-topic="Fashion">Fashion</div>
+                        <div class="chip" data-topic="Literature">Literature</div>
+                        <div class="chip" data-topic="Music">Music</div>
+                        <div class="chip" data-topic="Performing arts">Performing arts</div>
+                        <div class="chip" data-topic="Sports">Sports</div>
+                        <div class="chip" data-topic="TV and film">TV and film</div>
+                        <div class="chip" data-topic="Videogames">Videogames</div>
+                    </div>
+                    
+                    <h4>Preview</h4>
+                    <div class="preview-container" id="preview-container">
+                        <p class="select-prompt">Select a topic to see a preview of suggested articles</p>
+                        <!-- Preview content will be inserted here by JavaScript -->
+                    </div>
+                    
+                    <div class="sidebar-actions">
+                        <button class="cancel-btn" id="cancel-btn">Cancel</button>
+                        <button class="apply-btn" id="apply-btn">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="concept-footer">
+        <div class="footer-content">
+            <p>Concept by Claude Team</p>
+            <div class="feedback-section">
+                <a href="https://github.com/baba786/Unified-Dashboard/issues/new?title=Feedback for Concept 2&body=I have feedback about Concept 2:" class="feedback-button">Leave Feedback</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
