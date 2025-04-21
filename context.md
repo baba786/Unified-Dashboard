@@ -82,14 +82,16 @@ This document describes a comprehensive GitHub repository structure for creating
 
 ```
 Repository: [YOUR-REPOSITORY-NAME]
-├── main branch - Visual gallery/index of all concepts with preview images
-├── concept-1 branch - First design concept implementation
-├── concept-2 branch - Second design concept implementation
-└── concept-N branch - Additional design concepts as needed
+├── main branch
+│   ├── index.html, styles.css - Main gallery with concept cards
+│   ├── thumbnails/ - Directory for concept preview images
+│   ├── concept-1/ - First design concept implementation
+│   ├── concept-2/ - Second design concept implementation
+│   └── concept-N/ - Additional design concepts as needed
 ```
 
-Each branch is accessible through GitHub Pages at:
-- Main gallery: https://username.github.io/repository-name/
+Each concept is accessible through GitHub Pages at:
+- Main gallery: https://[YOUR-USERNAME].github.io/[YOUR-REPOSITORY-NAME]/
 - Concept 1: https://[YOUR-USERNAME].github.io/[YOUR-REPOSITORY-NAME]/concept-1/
 - Concept 2: https://[YOUR-USERNAME].github.io/[YOUR-REPOSITORY-NAME]/concept-2/
 
@@ -132,7 +134,15 @@ After pushing your main branch to GitHub:
 7. Wait a few minutes for the site to deploy
 8. Your site will be available at https://[YOUR-USERNAME].github.io/[YOUR-REPOSITORY-NAME]/
 
-Note: Each branch will automatically be accessible at its own URL path once GitHub Pages is enabled for the repository. You do not need to enable Pages separately for each branch.
+IMPORTANT CORRECTION - GitHub Pages Deployment Structure:
+GitHub Pages primarily serves content from the main branch. Instead of trying to serve directly from concept branches, use this more reliable directory structure:
+
+1. Keep the main gallery HTML/CSS in the root of main branch
+2. For each concept, create a subdirectory in the main branch (e.g., "concept-1", "concept-2")
+3. Place each concept's HTML/CSS/JS files in its corresponding subdirectory
+4. Link to concepts using relative paths (e.g., "concept-1/index.html")
+
+This approach ensures all content is accessible and properly linked without relying on branch-based URLs.
 ```
 
 ### 2. Main Branch Implementation
@@ -359,31 +369,35 @@ Each concept is developed in its own branch. To add a new concept:
 Please use the GitHub Issues feature to provide feedback on specific concepts.
 ```
 
-### 3. Creating Concept Branches
+### 3. Creating Concept Directories
 
 For each new design concept:
 
 ```bash
-# Create a new branch from main
+# Stay on main branch
 git checkout main
-git checkout -b concept-1
 
-# Create basic files for the concept
-mkdir -p assets/images
-mkdir -p assets/icons
-touch index.html styles.css script.js
+# Create directory for the new concept
+mkdir -p concept-1/assets/images
+mkdir -p concept-1/assets/icons
+touch concept-1/index.html concept-1/styles.css concept-1/script.js
 
 # Implement the concept (HTML, CSS, JS)
-# ... (concept implementation)
+# ... (edit the files in the concept-1 directory)
 
-# Commit the concept
+# Create thumbnail for the gallery
+# (Take a screenshot of the design and save it to thumbnails/concept-1.png)
+
+# Update main index.html to include the new concept card
+# ... (edit index.html to add link to concept-1/index.html)
+
+# Commit all changes
 git add .
-git commit -m "Implement concept 1: [Brief description]"
-git push -u origin concept-1
-
-# Return to main branch to create thumbnail
-git checkout main
+git commit -m "Add concept 1: [Brief description]"
+git push origin main
 ```
+
+Note: This approach keeps all concepts in directories on the main branch, which works better with GitHub Pages than using separate branches for each concept.
 
 #### Concept Branch Template (index.html)
 ```html
