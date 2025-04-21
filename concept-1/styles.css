@@ -1,0 +1,537 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header styles */
+.concept-header {
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content h1 {
+    font-size: 1.5rem;
+    color: #222;
+}
+
+.concept-description {
+    color: #666;
+    max-width: 600px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.back-link {
+    display: inline-block;
+    color: #36c; /* Using Wikimedia blue700 */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #3056a9; /* Using Wikimedia blue800 */
+    text-decoration: underline;
+}
+
+/* Main prototype container */
+.prototype-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+}
+
+/* Mobile frame styles */
+.mobile-frame {
+    width: 375px;
+    height: 700px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    border: 10px solid #eaecf0; /* Using Wikimedia gray100 */
+}
+
+/* Mobile header */
+.mobile-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-bottom: 1px solid #eaecf0; /* Using Wikimedia gray100 */
+}
+
+.icon {
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.header-title {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.header-icons {
+    display: flex;
+    gap: 12px;
+}
+
+/* New Translation button */
+.new-translation-btn {
+    background-color: #36c; /* Using Wikimedia blue700 */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 16px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.plus-icon {
+    margin-right: 6px;
+    font-weight: bold;
+}
+
+/* Suggestions section */
+.suggestions-section {
+    padding: 0 16px 16px;
+    height: calc(100% - 150px);
+    overflow-y: auto;
+}
+
+.suggestions-section h2 {
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid #c8ccd1; /* Using Wikimedia gray300 */
+    border-radius: 16px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+    background-color: #eaf3ff; /* Light blue background */
+    border-color: #36c; /* Using Wikimedia blue700 */
+    color: #36c; /* Using Wikimedia blue700 */
+}
+
+.user-icon, .heart-icon {
+    margin-right: 4px;
+}
+
+/* Topic selection with preview */
+.topic-preview-container {
+    position: relative;
+    z-index: 10;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid #c8ccd1; /* Using Wikimedia gray300 */
+    border-radius: 16px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.down-arrow {
+    margin-left: 4px;
+    font-size: 0.7rem;
+}
+
+/* Topic panel */
+.topic-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    padding: 16px;
+}
+
+.topic-panel.open {
+    right: 0;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eaecf0; /* Using Wikimedia gray100 */
+}
+
+.panel-header h3 {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.close-icon, .bookmark-icon {
+    cursor: pointer;
+    color: #72777d; /* Using Wikimedia gray500 */
+}
+
+.done-btn {
+    background-color: #36c; /* Using Wikimedia blue700 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.topic-panel h4 {
+    margin: 16px 0 8px;
+    color: #54595d; /* Using Wikimedia gray600 */
+}
+
+.auto-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+/* Topic grid */
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.topic-btn {
+    padding: 8px;
+    border: 1px solid #c8ccd1; /* Using Wikimedia gray300 */
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.topic-btn:hover {
+    background-color: #f8f9fa; /* Using Wikimedia gray50 */
+}
+
+.topic-btn.selected {
+    background-color: #eaf3ff; /* Light blue background */
+    border-color: #36c; /* Using Wikimedia blue700 */
+    color: #36c; /* Using Wikimedia blue700 */
+}
+
+/* Preview section */
+.preview-section {
+    margin-top: 20px;
+    border-top: 1px solid #eaecf0; /* Using Wikimedia gray100 */
+    padding-top: 16px;
+}
+
+.preview-container {
+    margin-top: 12px;
+    min-height: 150px;
+    border: 1px solid #eaecf0; /* Using Wikimedia gray100 */
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.select-prompt {
+    color: #72777d; /* Using Wikimedia gray500 */
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Preview article card */
+.preview-article {
+    display: flex;
+    border-bottom: 1px solid #eaecf0; /* Using Wikimedia gray100 */
+    padding: 8px 0;
+}
+
+.preview-article:last-child {
+    border-bottom: none;
+}
+
+.preview-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 12px;
+}
+
+.preview-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-info {
+    flex-grow: 1;
+}
+
+.preview-info h5 {
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+}
+
+.preview-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #72777d; /* Using Wikimedia gray500 */
+}
+
+/* Language selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.language {
+    padding: 6px 12px;
+    border: 1px solid #c8ccd1; /* Using Wikimedia gray300 */
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    margin: 0 12px;
+    color: #72777d; /* Using Wikimedia gray500 */
+}
+
+/* Articles section */
+.articles-section h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.article-card {
+    display: flex;
+    border: 1px solid #eaecf0; /* Using Wikimedia gray100 */
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.article-thumbnail {
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.article-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-info {
+    padding: 8px 12px;
+    flex-grow: 1;
+}
+
+.article-info h4 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+}
+
+.article-info p {
+    margin: 0 0 4px;
+    font-size: 0.85rem;
+    color: #72777d; /* Using Wikimedia gray500 */
+}
+
+.article-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    background-color: #eaf3ff; /* Light blue background */
+    color: #36c; /* Using Wikimedia blue700 */
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.bookmark-icon {
+    position: absolute;
+    bottom: 8px;
+    right: 30px;
+    cursor: pointer;
+    color: #72777d; /* Using Wikimedia gray500 */
+}
+
+.close-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    color: #72777d; /* Using Wikimedia gray500 */
+}
+
+/* Expand section */
+.expand-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.expand-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8f9fa; /* Using Wikimedia gray50 */
+    border: 1px solid #eaecf0; /* Using Wikimedia gray100 */
+    border-radius: 4px;
+    color: #36c; /* Using Wikimedia blue700 */
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Bottom navigation */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    border-top: 1px solid #eaecf0; /* Using Wikimedia gray100 */
+    padding: 8px 0;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #72777d; /* Using Wikimedia gray500 */
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.nav-item.active {
+    color: #36c; /* Using Wikimedia blue700 */
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+/* Footer styles */
+.concept-footer {
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feedback-button {
+    display: inline-block;
+    background-color: #36c; /* Using Wikimedia blue700 */
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.feedback-button:hover {
+    background-color: #3056a9; /* Using Wikimedia blue800 */
+}
+
+/* Placeholder images */
+.article-thumbnail img, .preview-thumbnail img {
+    background-color: #eaecf0; /* Using Wikimedia gray100 */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .concept-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    
+    .navigation {
+        margin-top: 1rem;
+    }
+    
+    .prototype-container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}

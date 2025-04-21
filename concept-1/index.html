@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept 1: Mobile Topic Selection with Preview | UX Design Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="concept-header">
+        <div class="header-content">
+            <h1>Concept 1: Mobile Topic Selection with Preview</h1>
+            <p class="concept-description">A mobile-friendly approach to selecting topics with live preview capabilities for content translation</p>
+        </div>
+        <nav class="navigation">
+            <a href="../index.html" class="back-link">← All Concepts</a>
+        </nav>
+    </header>
+    
+    <main class="prototype-container">
+        <!-- Mobile content translation interface -->
+        <div class="mobile-frame">
+            <div class="mobile-header">
+                <div class="icon">W</div>
+                <div class="header-title">Translations</div>
+                <div class="header-icons">
+                    <span class="icon">🔔</span>
+                    <span class="icon">📱</span>
+                    <span class="icon">👤</span>
+                </div>
+            </div>
+            
+            <div class="new-translation-btn">
+                <span class="plus-icon">+</span> New Translation
+            </div>
+            
+            <div class="suggestions-section">
+                <h2>Suggestions</h2>
+                
+                <div class="filters">
+                    <button class="filter-btn active" id="for-you-btn">
+                        <span class="user-icon">👤</span> For you
+                    </button>
+                    <button class="filter-btn" id="popular-btn">
+                        <span class="heart-icon">❤️</span> Popular
+                    </button>
+                    
+                    <!-- Topic selection button with preview capability -->
+                    <div class="topic-preview-container">
+                        <button class="menu-button" id="topic-btn">
+                            <span id="selected-topic">Select Topic</span>
+                            <span class="down-arrow">▼</span>
+                        </button>
+                        
+                        <!-- Topic selection panel -->
+                        <div class="topic-panel" id="topic-panel">
+                            <div class="panel-header">
+                                <span class="close-icon" id="close-panel">✕</span>
+                                <h3>Adjust suggestions</h3>
+                                <button class="done-btn" id="done-btn">Done</button>
+                            </div>
+                            
+                            <h4>Automatic</h4>
+                            <div class="auto-filters">
+                                <button class="filter-btn active">
+                                    <span class="user-icon">👤</span> For you
+                                </button>
+                                <button class="filter-btn">
+                                    <span class="heart-icon">❤️</span> Popular
+                                </button>
+                            </div>
+                            
+                            <h4>Culture</h4>
+                            <div class="topic-grid">
+                                <button class="topic-btn" data-topic="Architecture">Architecture</button>
+                                <button class="topic-btn" data-topic="Art">Art</button>
+                                <button class="topic-btn" data-topic="Comics and anime">Comics and anime</button>
+                                <button class="topic-btn" data-topic="Entertainment">Entertainment</button>
+                                <button class="topic-btn" data-topic="Fashion">Fashion</button>
+                                <button class="topic-btn" data-topic="Literature">Literature</button>
+                                <button class="topic-btn" data-topic="Music">Music</button>
+                                <button class="topic-btn" data-topic="Performing arts">Performing arts</button>
+                                <button class="topic-btn" data-topic="Sports">Sports</button>
+                                <button class="topic-btn" data-topic="TV and film">TV and film</button>
+                                <button class="topic-btn" data-topic="Videogames">Videogames</button>
+                            </div>
+                            
+                            <div class="preview-section">
+                                <h4>Preview</h4>
+                                <div class="preview-container" id="preview-container">
+                                    <p class="select-prompt">Select a topic to see a preview of suggested articles</p>
+                                    <!-- Preview content will be inserted here by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="language-selector">
+                    <div class="language">
+                        English <span class="down-arrow">▼</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="language">
+                        বাংলা <span class="down-arrow">▼</span>
+                    </div>
+                </div>
+                
+                <div class="articles-section">
+                    <h3>New pages</h3>
+                    
+                    <div class="article-list" id="article-list">
+                        <!-- Default articles -->
+                        <div class="article-card">
+                            <div class="article-thumbnail">
+                                <img src="assets/images/placeholder1.jpg" alt="Article thumbnail">
+                            </div>
+                            <div class="article-info">
+                                <h4>Cubism</h4>
+                                <p>art movement</p>
+                                <div class="article-tag">Featured</div>
+                            </div>
+                            <div class="bookmark-icon">🔖</div>
+                            <div class="close-icon">✕</div>
+                        </div>
+                        
+                        <div class="article-card">
+                            <div class="article-thumbnail">
+                                <img src="assets/images/placeholder2.jpg" alt="Article thumbnail">
+                            </div>
+                            <div class="article-info">
+                                <h4>Watercolor painting</h4>
+                                <p>painting method</p>
+                                <div class="article-tag">Featured</div>
+                            </div>
+                            <div class="bookmark-icon">🔖</div>
+                            <div class="close-icon">✕</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="expand-section">
+                    <button class="expand-btn">Expand with new sections</button>
+                </div>
+            </div>
+            
+            <div class="bottom-nav">
+                <div class="nav-item active">
+                    <span class="nav-icon">💡</span>
+                    <span class="nav-text">Suggestions</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">✏️</span>
+                    <span class="nav-text">In-progress</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-text">Published</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="concept-footer">
+        <div class="footer-content">
+            <p>Concept by Claude Team</p>
+            <div class="feedback-section">
+                <a href="https://github.com/baba786/Unified-Dashboard/issues/new?title=Feedback for Concept 1&body=I have feedback about Concept 1:" class="feedback-button">Leave Feedback</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
