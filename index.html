@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX Design Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>UX Design Concepts</h1>
+        <p class="description">Interactive prototypes for design review. Select a concept to explore.</p>
+    </header>
+    
+    <main class="concepts-grid">
+        <!-- Concept cards will be added here -->
+        
+        <!-- Example Concept Card Template -->
+        <a href="https://baba786.github.io/Unified Dashboard/concept-1/" class="concept-card">
+            <div class="card-image">
+                <img src="thumbnails/concept-1.png" alt="Concept 1 Preview">
+            </div>
+            <div class="card-content">
+                <h2>Concept 1: Minimalist Dashboard</h2>
+                <p>A clean, streamlined approach focusing on core functionality with intuitive navigation.</p>
+                <span class="view-button">View Prototype</span>
+            </div>
+        </a>
+        
+        <!-- Additional concept cards would follow the same pattern -->
+    </main>
+    
+    <footer>
+        <p>UX Design Exploration by [Your Name/Team] | Last Updated: <span id="last-updated"></span></p>
+    </footer>
+
+    <script>
+        // Set the last updated date
+        document.getElementById('last-updated').textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
