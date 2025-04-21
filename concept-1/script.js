@@ -13,6 +13,43 @@ function initializePrototype() {
     
     // Mock data for article previews based on topics
     window.topicPreviews = {
+        // Default filter sets
+        'For you': [
+            {
+                title: 'Cubism',
+                description: 'art movement',
+                image: 'assets/images/placeholder1.jpg',
+                tag: 'Featured'
+            },
+            {
+                title: 'Watercolor painting',
+                description: 'painting method',
+                image: 'assets/images/placeholder2.jpg',
+                tag: 'Featured'
+            }
+        ],
+        'Popular': [
+            {
+                title: 'Renaissance',
+                description: 'European cultural movement',
+                image: 'assets/images/placeholder2.jpg',
+                tag: 'Trending'
+            },
+            {
+                title: 'Surrealism',
+                description: 'Cultural movement',
+                image: 'assets/images/placeholder1.jpg',
+                tag: 'Trending'
+            },
+            {
+                title: 'Abstract expressionism',
+                description: 'American art movement',
+                image: 'assets/images/placeholder2.jpg',
+                tag: 'Popular'
+            }
+        ],
+        
+        // Topic specific previews
         'Art': [
             {
                 title: 'Impressionism',
@@ -132,6 +169,16 @@ function setupEventListeners() {
     
     doneBtn.addEventListener('click', () => {
         topicPanel.classList.remove('open');
+        
+        // Update the article list based on selected topic
+        const selectedTopicElement = document.querySelector('.topic-btn.selected');
+        if (selectedTopicElement) {
+            const topic = selectedTopicElement.dataset.topic;
+            updateArticleList(topic);
+            
+            // Update the selected topic button text
+            document.getElementById('selected-topic').textContent = topic;
+        }
     });
     
     // Topic buttons show preview when clicked
@@ -148,18 +195,35 @@ function setupEventListeners() {
             
             // Show preview for the selected topic
             showTopicPreview(topic);
-            
-            // Update the selected topic in the menu button
-            document.getElementById('selected-topic').textContent = topic;
         });
+    });
+    
+    // Main filter buttons update the article list
+    const forYouBtn = document.getElementById('for-you-btn');
+    const popularBtn = document.getElementById('popular-btn');
+    
+    forYouBtn.addEventListener('click', () => {
+        // Update article list with "For you" content
+        updateArticleList('For you');
+        
+        // Reset the topic button text
+        document.getElementById('selected-topic').textContent = '...more';
+    });
+    
+    popularBtn.addEventListener('click', () => {
+        // Update article list with "Popular" content
+        updateArticleList('Popular');
+        
+        // Reset the topic button text
+        document.getElementById('selected-topic').textContent = '...more';
     });
     
     // Filter buttons toggle active state
     const filterButtons = document.querySelectorAll('.filters .filter-btn');
     filterButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            // Deselect sibling buttons
-            const siblingButtons = e.target.parentElement.querySelectorAll('.filter-btn');
+            // Only toggle siblings, not all filter buttons
+            const siblingButtons = e.target.closest('.filters, .auto-filters').querySelectorAll('.filter-btn');
             siblingButtons.forEach(btn => btn.classList.remove('active'));
             
             // Select the clicked button
@@ -201,49 +265,50 @@ function showTopicPreview(topic) {
     }
 }
 
-// When a topic is selected from the panel, update the article list in the main view
-function updateArticleList(topic) {
+// Update the article list based on the selected filter or topic
+function updateArticleList(filter) {
     const articleList = document.getElementById('article-list');
     
-    // Get the preview articles for the selected topic
-    const previewArticles = window.topicPreviews[topic];
+    // Get the articles for the selected filter or topic
+    const articles = window.topicPreviews[filter];
     
-    if (previewArticles && previewArticles.length > 0) {
-        // Clear the article list
-        articleList.innerHTML = '';
+    if (articles && articles.length > 0) {
+        // Clear the article list with a fade effect
+        articleList.style.opacity = '0';
         
-        // Create article cards
-        previewArticles.forEach(article => {
-            const articleElement = document.createElement('div');
-            articleElement.className = 'article-card';
+        setTimeout(() => {
+            // Clear the article list
+            articleList.innerHTML = '';
             
-            articleElement.innerHTML = `
-                <div class="article-thumbnail">
-                    <img src="${article.image}" alt="${article.title}">
-                </div>
-                <div class="article-info">
-                    <h4>${article.title}</h4>
-                    <p>${article.description}</p>
-                    <div class="article-tag">Featured</div>
-                </div>
-                <div class="bookmark-icon">🔖</div>
-                <div class="close-icon">✕</div>
-            `;
+            // Create article cards
+            articles.forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.className = 'article-card';
+                
+                articleElement.innerHTML = `
+                    <div class="article-thumbnail">
+                        <img src="${article.image}" alt="${article.title}">
+                    </div>
+                    <div class="article-info">
+                        <h4>${article.title}</h4>
+                        <p>${article.description}</p>
+                        <div class="article-tag">${article.tag || 'Featured'}</div>
+                    </div>
+                    <div class="bookmark-icon">🔖</div>
+                    <div class="close-icon">✕</div>
+                `;
+                
+                articleList.appendChild(articleElement);
+            });
             
-            articleList.appendChild(articleElement);
-        });
+            // Fade in the new articles
+            articleList.style.opacity = '1';
+        }, 300);
     }
 }
 
-// When the done button is clicked, update the article list with the selected topic
+// Initial setup for article list
 document.addEventListener('DOMContentLoaded', () => {
-    const doneBtn = document.getElementById('done-btn');
-    
-    doneBtn.addEventListener('click', () => {
-        const selectedTopicElement = document.querySelector('.topic-btn.selected');
-        if (selectedTopicElement) {
-            const topic = selectedTopicElement.dataset.topic;
-            updateArticleList(topic);
-        }
-    });
+    // Initialize with "For you" articles
+    updateArticleList('For you');
 });

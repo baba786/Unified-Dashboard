@@ -182,22 +182,33 @@ body {
     font-size: 0.7rem;
 }
 
-/* Topic panel */
+/* Topic panel - mobile-friendly bottom sheet */
 .topic-panel {
     position: fixed;
-    top: 0;
-    right: -100%;
+    bottom: -100%;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     background-color: #fff;
     z-index: 1000;
     overflow-y: auto;
-    transition: right 0.3s ease;
+    transition: bottom 0.3s ease;
     padding: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
 
 .topic-panel.open {
-    right: 0;
+    bottom: 0;
+}
+
+.panel-handle {
+    width: 40px;
+    height: 4px;
+    background-color: #eaecf0; /* Using Wikimedia gray100 */
+    border-radius: 2px;
+    margin: 0 auto 16px;
 }
 
 .panel-header {
@@ -364,6 +375,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .article-card {
