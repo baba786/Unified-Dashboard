@@ -46,56 +46,55 @@
                     </button>
                     
                     <!-- Topic selection button with preview capability -->
-                    <div class="topic-preview-container">
-                        <button class="menu-button" id="topic-btn">
-                            <span id="selected-topic">...more</span>
-                        </button>
+                    <button class="menu-button" id="topic-btn">
+                        <span id="selected-topic">...more</span>
+                    </button>
+                    
+                    <!-- Topic selection panel - mobile-friendly bottom sheet -->
+                    <div class="topic-panel" id="topic-panel">
+                        <div class="panel-handle"></div>
+                        <div class="panel-header">
+                            <span class="close-icon" id="close-panel">✕</span>
+                            <h3>Adjust suggestions</h3>
+                            <button class="done-btn" id="done-btn">Done</button>
+                        </div>
                         
-                        <!-- Topic selection panel - mobile-friendly bottom sheet -->
-                        <div class="topic-panel" id="topic-panel">
-                            <div class="panel-handle"></div>
-                            <div class="panel-header">
-                                <span class="close-icon" id="close-panel">✕</span>
-                                <h3>Adjust suggestions</h3>
-                                <button class="done-btn" id="done-btn">Done</button>
-                            </div>
-                            
-                            <h4>Automatic</h4>
-                            <div class="auto-filters">
-                                <button class="filter-btn active">
-                                    <span class="user-icon">👤</span> For you
-                                </button>
-                                <button class="filter-btn">
-                                    <span class="heart-icon">❤️</span> Popular
-                                </button>
-                            </div>
-                            
-                            <h4>Culture</h4>
-                            <div class="topic-grid">
-                                <button class="topic-btn" data-topic="Architecture">Architecture</button>
-                                <button class="topic-btn" data-topic="Art">Art</button>
-                                <button class="topic-btn" data-topic="Comics and anime">Comics and anime</button>
-                                <button class="topic-btn" data-topic="Entertainment">Entertainment</button>
-                                <button class="topic-btn" data-topic="Fashion">Fashion</button>
-                                <button class="topic-btn" data-topic="Literature">Literature</button>
-                                <button class="topic-btn" data-topic="Music">Music</button>
-                                <button class="topic-btn" data-topic="Performing arts">Performing arts</button>
-                                <button class="topic-btn" data-topic="Sports">Sports</button>
-                                <button class="topic-btn" data-topic="TV and film">TV and film</button>
-                                <button class="topic-btn" data-topic="Videogames">Videogames</button>
-                            </div>
-                            
-                            <div class="preview-section">
-                                <h4>Preview</h4>
-                                <div class="preview-container" id="preview-container">
-                                    <p class="select-prompt">Select a topic to see a preview of suggested articles</p>
-                                    <!-- Preview content will be inserted here by JavaScript -->
-                                </div>
+                        <h4>Automatic</h4>
+                        <div class="auto-filters">
+                            <button class="filter-btn active">
+                                <span class="user-icon">👤</span> For you
+                            </button>
+                            <button class="filter-btn">
+                                <span class="heart-icon">❤️</span> Popular
+                            </button>
+                        </div>
+                        
+                        <h4>Culture</h4>
+                        <div class="topic-grid">
+                            <button class="topic-btn" data-topic="Architecture">Architecture</button>
+                            <button class="topic-btn" data-topic="Art">Art</button>
+                            <button class="topic-btn" data-topic="Comics and anime">Comics and anime</button>
+                            <button class="topic-btn" data-topic="Entertainment">Entertainment</button>
+                            <button class="topic-btn" data-topic="Fashion">Fashion</button>
+                            <button class="topic-btn" data-topic="Literature">Literature</button>
+                            <button class="topic-btn" data-topic="Music">Music</button>
+                            <button class="topic-btn" data-topic="Performing arts">Performing arts</button>
+                            <button class="topic-btn" data-topic="Sports">Sports</button>
+                            <button class="topic-btn" data-topic="TV and film">TV and film</button>
+                            <button class="topic-btn" data-topic="Videogames">Videogames</button>
+                        </div>
+                        
+                        <div class="preview-section">
+                            <h4>Preview</h4>
+                            <div class="preview-container" id="preview-container">
+                                <p class="select-prompt">Select a topic to see a preview of suggested articles</p>
+                                <!-- Preview content will be inserted here by JavaScript -->
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Updated language selector structure -->
                 <div class="language-selector">
                     <div class="language">
                         English <span class="down-arrow">▼</span>

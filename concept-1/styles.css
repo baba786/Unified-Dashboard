@@ -129,12 +129,13 @@ body {
     font-size: 1.2rem;
 }
 
-/* Filters */
+/* Filters - UPDATED with better spacing */
 .filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
+    gap: 12px; /* Increased gap from 8px to 12px for better spacing */
+    margin-bottom: 20px; /* Increased from 16px */
+    align-items: center; /* Ensure vertical alignment */
 }
 
 .filter-btn {
@@ -156,7 +157,7 @@ body {
 }
 
 .user-icon, .heart-icon {
-    margin-right: 4px;
+    margin-right: 6px; /* Increased from 4px for better spacing */
 }
 
 /* Topic selection with preview */
@@ -174,7 +175,7 @@ body {
     background-color: #fff;
     font-size: 0.9rem;
     cursor: pointer;
-    margin-left: 8px;
+    margin-left: 0; /* Removed margin to align with other buttons */
 }
 
 .down-arrow {
@@ -341,12 +342,13 @@ body {
     color: #72777d; /* Using Wikimedia gray500 */
 }
 
-/* Language selector */
+/* Language selector - UPDATED to left-align */
 .language-selector {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
+    justify-content: flex-start; /* Changed from center to flex-start */
+    margin-bottom: 20px; /* Increased from 16px */
+    gap: 12px; /* Added gap for consistent spacing */
 }
 
 .language {
@@ -361,8 +363,8 @@ body {
 }
 
 .arrow {
-    margin: 0 12px;
     color: #72777d; /* Using Wikimedia gray500 */
+    margin: 0; /* Removed specific margin */
 }
 
 /* Articles section */
