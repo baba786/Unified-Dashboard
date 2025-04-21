@@ -183,10 +183,10 @@ body {
     font-size: 0.7rem;
 }
 
-/* Topic panel - mobile-friendly bottom sheet */
+/* Topic panel - FIXED to ensure mobile bottom sheet behavior */
 .topic-panel {
     position: fixed;
-    bottom: -100%;
+    bottom: -100%; /* Start positioned off-screen */
     left: 0;
     width: 100%;
     height: 90%;
@@ -198,10 +198,14 @@ body {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    /* Ensure it appears within the mobile frame */
+    max-width: 355px; /* Adjusted to fit within the mobile frame (375px minus padding) */
+    margin: 0 auto;
+    right: 0;
 }
 
 .topic-panel.open {
-    bottom: 0;
+    bottom: 10px; /* Position from bottom when open, adjusted for the mobile frame */
 }
 
 .panel-handle {
@@ -489,6 +493,22 @@ body {
 .nav-icon {
     font-size: 1.2rem;
     margin-bottom: 4px;
+}
+
+/* Overlay to prevent interaction with background when panel is open */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
 }
 
 /* Footer styles */

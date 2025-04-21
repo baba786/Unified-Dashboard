@@ -158,17 +158,30 @@ function setupEventListeners() {
     const topicPanel = document.getElementById('topic-panel');
     const closePanel = document.getElementById('close-panel');
     const doneBtn = document.getElementById('done-btn');
+    const overlay = document.getElementById('overlay');
     
+    // Open panel and show overlay
     topicBtn.addEventListener('click', () => {
         topicPanel.classList.add('open');
+        overlay.classList.add('active');
+        // Prevent scrolling on the body when panel is open
+        document.body.style.overflow = 'hidden';
     });
     
-    closePanel.addEventListener('click', () => {
+    // Functions to close the panel
+    function closeTopicPanel() {
         topicPanel.classList.remove('open');
-    });
+        overlay.classList.remove('active');
+        // Re-enable scrolling
+        document.body.style.overflow = '';
+    }
+    
+    // Close panel when clicking the close button or overlay
+    closePanel.addEventListener('click', closeTopicPanel);
+    overlay.addEventListener('click', closeTopicPanel);
     
     doneBtn.addEventListener('click', () => {
-        topicPanel.classList.remove('open');
+        closeTopicPanel();
         
         // Update the article list based on selected topic
         const selectedTopicElement = document.querySelector('.topic-btn.selected');
